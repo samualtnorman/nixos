@@ -101,8 +101,7 @@
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
 	environment.systemPackages = with pkgs; [
-	#  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-	#  wget
+		starship
 	];
 
 	# Some programs need SUID wrappers, can be configured further or are
@@ -135,4 +134,14 @@
 	services.xserver.videoDrivers = [ "nvidia" ];
 	programs.zsh.enable = true;
 	users.defaultUserShell = pkgs.zsh;
+	programs.zsh.ohMyZsh.enable = true;
+	programs.zsh.autosuggestions.enable = true;
+	programs.zsh.syntaxHighlighting.enable = true;
+	programs.zsh.autosuggestions.strategy = [ "completion" "match_prev_cmd" "history" ];
+	programs.zsh.enableBashCompletion = true;
+
+	programs.zsh.ohMyZsh.plugins = [
+		"alias-finder" "aliases" "catimg" "colored-man-pages" "colorize" "common-aliases" "cp" "dircycle" "git"
+		"git-auto-fetch" "history" "history-substring-search" "last-working-dir" "man" "qrcode" "rsync" "starship"
+	];
 }

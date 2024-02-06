@@ -90,6 +90,7 @@
       firefox
       kate
       vscode
+      git
     #  thunderbird
     ];
   };

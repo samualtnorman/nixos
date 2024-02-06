@@ -151,4 +151,9 @@
 		export PNPM_HOME=~/.local/share/pnpm
 		export PATH=$PNPM_HOME:$PATH
 	'';
+
+	programs.neovim.enable = true;
+	programs.neovim.defaultEditor = true;
+	programs.neovim.vimAlias = true;
+	programs.neovim.viAlias = true;
 }

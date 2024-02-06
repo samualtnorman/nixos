@@ -156,4 +156,6 @@
 	programs.neovim.defaultEditor = true;
 	programs.neovim.vimAlias = true;
 	programs.neovim.viAlias = true;
+	system.autoUpgrade.enable = true;
+	system.autoUpgrade.allowReboot = true;
 }

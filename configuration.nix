@@ -91,7 +91,7 @@
 			kate
 			vscode
 			git
-		#  thunderbird
+			nodejs_20
 		];
 	};
 

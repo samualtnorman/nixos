@@ -25,6 +25,7 @@
 	boot.binfmt.registrations.wasm.magicOrExtension = "\\x00asm";
 	boot.binfmt.registrations.wasm.mask = "\\xff\\xff\\xff\\xff";
 	boot.binfmt.registrations.wasm.interpreter = "/run/current-system/sw/bin/wasmer";
+	users.users.samual.extraGroups = [ "docker" ];
 
 	programs.zsh.interactiveShellInit = ''
 		export PNPM_HOME=~/.local/share/pnpm

@@ -14,8 +14,6 @@
 	programs.zsh.ohMyZsh.enable = true;
 	programs.zsh.syntaxHighlighting.enable = true;
 	services.openssh.enable = true;
-	system.autoUpgrade.allowReboot = true;
-	system.autoUpgrade.enable = true;
 	users.defaultUserShell = pkgs.zsh;
 	environment.shellAliases.tfa = ''tmux attach-session -t "$(tmux list-sessions | fzf | cut -d: -f1)"'';
 	environment.shellAliases."nix-shell" = "nix-shell --run zsh";

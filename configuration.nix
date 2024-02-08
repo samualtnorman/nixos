@@ -29,6 +29,7 @@
 	boot.binfmt.registrations.wasm.mask = "\\xff\\xff\\xff\\xff";
 	boot.binfmt.registrations.wasm.interpreter = "/run/current-system/sw/bin/wasmer";
 	users.users.samual.extraGroups = [ "docker" ];
+	security.pam.u2f.enable = true;
 
 	programs.zsh.interactiveShellInit = ''
 		export PNPM_HOME=~/.local/share/pnpm
@@ -47,4 +48,13 @@
 	users.users.samual.packages = with pkgs; [
 		firefox nodejs_20 google-chrome krita direnv gnupg wineWowPackages.stable libsForQt5.filelight xorg.xkill
 	];
+
+	services.udev.extraRules = ''
+		ACTION=="remove",\
+		ENV{ID_BUS}=="usb",\
+		ENV{ID_MODEL_ID}=="0407",\
+		ENV{ID_VENDOR_ID}=="1050",\
+		ENV{ID_VENDOR}=="Yubico",\
+		RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
+	'';
 }

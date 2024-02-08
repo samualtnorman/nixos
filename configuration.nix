@@ -17,6 +17,9 @@
 	users.defaultUserShell = pkgs.zsh;
 	environment.shellAliases.tfa = ''tmux attach-session -t "$(tmux list-sessions | fzf | cut -d: -f1)"'';
 	environment.shellAliases."nix-shell" = "nix-shell --run zsh";
+	environment.shellAliases.du = "du --human-readable --max-depth=1";
+	environment.shellAliases.ls = "ls --color=auto --human-readable --classify --sort=extension";
+	environment.shellAliases.df = "df --human-readable";
 	virtualisation.docker.enable = true;
 	programs.partition-manager.enable = true;
 	programs.kdeconnect.enable = true;

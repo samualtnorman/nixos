@@ -28,8 +28,10 @@
 	boot.binfmt.registrations.wasm.magicOrExtension = "\\x00asm";
 	boot.binfmt.registrations.wasm.mask = "\\xff\\xff\\xff\\xff";
 	boot.binfmt.registrations.wasm.interpreter = "/run/current-system/sw/bin/wasmer";
-	users.users.samual.extraGroups = [ "docker" ];
+	users.users.samual.extraGroups = [ "docker" config.services.kubo.group ];
 	security.pam.u2f.enable = true;
+	services.kubo.enable = true;
+	services.kubo.settings.Addresses.API = "/ip4/127.0.0.1/tcp/5001";
 
 	programs.zsh.interactiveShellInit = ''
 		export PNPM_HOME=~/.local/share/pnpm

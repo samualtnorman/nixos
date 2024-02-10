@@ -44,7 +44,7 @@
 	];
 
 	environment.systemPackages = with pkgs; [
-		starship bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer
+		starship bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file
 	];
 	
 	users.users.samual.packages = with pkgs; [

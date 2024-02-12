@@ -20,6 +20,7 @@
 	environment.shellAliases.du = "du --human-readable --max-depth=1";
 	environment.shellAliases.ls = "ls --color=auto --human-readable --classify --sort=extension";
 	environment.shellAliases.df = "df --human-readable";
+	environment.shellAliases.path = "echo $PATH | tr : '\n'";
 	virtualisation.docker.enable = true;
 	programs.partition-manager.enable = true;
 	programs.kdeconnect.enable = true;

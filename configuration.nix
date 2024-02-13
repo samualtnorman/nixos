@@ -33,6 +33,8 @@
 	security.pam.u2f.enable = true;
 	services.kubo.enable = true;
 	services.kubo.settings.Addresses.API = "/ip4/127.0.0.1/tcp/5001";
+	services.avahi.enable = true;
+	services.avahi.nssmdns = true;
 
 	programs.zsh.interactiveShellInit = ''
 		export PNPM_HOME=~/.local/share/pnpm

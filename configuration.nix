@@ -35,6 +35,7 @@
 	services.kubo.settings.Addresses.API = "/ip4/127.0.0.1/tcp/5001";
 	services.avahi.enable = true;
 	services.avahi.nssmdns = true;
+	programs.direnv.enable = true;
 
 	programs.zsh.interactiveShellInit = ''
 		export PNPM_HOME=~/.local/share/pnpm
@@ -51,8 +52,7 @@
 	];
 	
 	users.users.samual.packages = with pkgs; [
-		firefox nodejs_20 google-chrome krita direnv gnupg wineWowPackages.stable libsForQt5.filelight xorg.xkill
-		nerdfonts
+		firefox nodejs_20 google-chrome krita gnupg wineWowPackages.stable libsForQt5.filelight xorg.xkill nerdfonts
 	];
 
 	services.udev.extraRules = ''

@@ -52,6 +52,7 @@
 	
 	users.users.samual.packages = with pkgs; [
 		firefox nodejs_20 google-chrome krita direnv gnupg wineWowPackages.stable libsForQt5.filelight xorg.xkill
+		nerdfonts
 	];
 
 	services.udev.extraRules = ''

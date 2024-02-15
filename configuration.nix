@@ -36,6 +36,7 @@
 	services.avahi.enable = true;
 	services.avahi.nssmdns = true;
 	programs.direnv.enable = true;
+	system.fsPackages = [ pkgs.sshfs ];
 
 	programs.zsh.interactiveShellInit = ''
 		export PNPM_HOME=~/.local/share/pnpm

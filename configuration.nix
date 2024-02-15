@@ -37,6 +37,7 @@
 	services.avahi.nssmdns = true;
 	programs.direnv.enable = true;
 	system.fsPackages = [ pkgs.sshfs ];
+	programs.zsh.syntaxHighlighting.highlighters = [ "main" "brackets" ];
 
 	programs.zsh.interactiveShellInit = ''
 		export PNPM_HOME=~/.local/share/pnpm

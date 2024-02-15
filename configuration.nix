@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }: {
 	imports = [ /etc/nixos/configuration.nix ];
-	networking.hostName = lib.mkForce "samual-nixos";
+	networking.hostName = lib.mkDefault "samual-nixos";
 	nix.gc.automatic = true;
 	programs.git.enable = true;
 	programs.neovim.enable = true;

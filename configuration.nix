@@ -22,19 +22,14 @@
 	environment.shellAliases.df = "df --human-readable";
 	environment.shellAliases.path = "echo $PATH | tr : '\n'";
 	virtualisation.docker.enable = true;
-	programs.partition-manager.enable = true;
-	programs.kdeconnect.enable = true;
 	programs.tmux.enable = true;
 	programs.tmux.newSession = true;
 	boot.binfmt.registrations.wasm.magicOrExtension = "\\x00asm";
 	boot.binfmt.registrations.wasm.mask = "\\xff\\xff\\xff\\xff";
 	boot.binfmt.registrations.wasm.interpreter = "/run/current-system/sw/bin/wasmer";
 	users.users.samual.extraGroups = [ "docker" config.services.kubo.group ];
-	security.pam.u2f.enable = true;
 	services.kubo.enable = true;
 	services.kubo.settings.Addresses.API = "/ip4/127.0.0.1/tcp/5001";
-	services.avahi.enable = true;
-	services.avahi.nssmdns = true;
 	programs.direnv.enable = true;
 	system.fsPackages = [ pkgs.sshfs ];
 	programs.zsh.syntaxHighlighting.highlighters = [ "main" "brackets" ];
@@ -49,20 +44,8 @@
 		"git-auto-fetch" "history" "history-substring-search" "last-working-dir" "man" "qrcode" "rsync" "starship"
 	];
 
-	environment.systemPackages = with pkgs; [
-		starship bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file lzip
-	];
+	environment.systemPackages =
+		with pkgs; [ starship bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file lzip ];
 	
-	users.users.samual.packages = with pkgs; [
-		firefox nodejs_20 google-chrome krita gnupg wineWowPackages.stable libsForQt5.filelight xorg.xkill nerdfonts
-	];
-
-	services.udev.extraRules = ''
-		ACTION=="remove",\
-		ENV{ID_BUS}=="usb",\
-		ENV{ID_MODEL_ID}=="0407",\
-		ENV{ID_VENDOR_ID}=="1050",\
-		ENV{ID_VENDOR}=="Yubico",\
-		RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
-	'';
+	users.users.samual.packages = with pkgs; [ nodejs_20 gnupg ];
 }

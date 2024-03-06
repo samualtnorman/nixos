@@ -1,3 +1,4 @@
+let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 { config, pkgs, lib, ... }: {
 	imports = [ /etc/nixos/configuration.nix ];
 	networking.hostName = lib.mkDefault "samual-nixos";
@@ -34,9 +35,10 @@
 	system.fsPackages = [ pkgs.sshfs ];
 	programs.zsh.syntaxHighlighting.highlighters = [ "main" "brackets" ];
 
-	programs.zsh.interactiveShellInit = ''
+	programs.zsh.promptInit = ''
 		export PNPM_HOME=~/.local/share/pnpm
 		export PATH=$PNPM_HOME:$PATH
+		eval "$(atuin init zsh)"
 	'';
 
 	programs.zsh.ohMyZsh.plugins = [
@@ -44,8 +46,9 @@
 		"git-auto-fetch" "history" "history-substring-search" "last-working-dir" "man" "qrcode" "rsync" "starship"
 	];
 
-	environment.systemPackages =
-		with pkgs; [ starship bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file lzip ];
+	environment.systemPackages = with pkgs; [
+		starship bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file lzip unstable.atuin
+	];
 	
 	users.users.samual.packages = with pkgs; [ nodejs_20 gnupg ];
 }

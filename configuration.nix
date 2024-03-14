@@ -1,7 +1,6 @@
 let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 { config, pkgs, lib, ... }: {
 	imports = [ /etc/nixos/configuration.nix ];
-	networking.hostName = lib.mkDefault "samual-nixos";
 	nix.gc.automatic = true;
 	programs.git.enable = true;
 	programs.neovim.enable = true;
@@ -34,6 +33,8 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.direnv.enable = true;
 	system.fsPackages = [ pkgs.sshfs ];
 	programs.zsh.syntaxHighlighting.highlighters = [ "main" "brackets" ];
+	security.pam.u2f.enable = true;
+	programs.nix-ld.enable = true;
 
 	programs.zsh.promptInit = ''
 		export PNPM_HOME=~/.local/share/pnpm
@@ -50,5 +51,5 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 		starship bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file lzip unstable.atuin nodejs_20
 	];
 	
-	users.users.samual.packages = with pkgs; [ gnupg ];
+	users.users.samual.packages = with pkgs; [ gnupg unzip gcc ripgrep ];
 }

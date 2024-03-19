@@ -24,6 +24,8 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	virtualisation.docker.enable = true;
 	programs.tmux.enable = true;
 	programs.tmux.newSession = true;
+	programs.tmux.baseIndex = 1;
+	programs.tmux.extraConfig = ''set -ag terminal-overrides ",xterm-256color:RGB"'';
 	boot.binfmt.registrations.wasm.magicOrExtension = "\\x00asm";
 	boot.binfmt.registrations.wasm.mask = "\\xff\\xff\\xff\\xff";
 	boot.binfmt.registrations.wasm.interpreter = "/run/current-system/sw/bin/wasmer";

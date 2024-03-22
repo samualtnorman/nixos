@@ -41,7 +41,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.zsh.promptInit = ''
 		export PNPM_HOME=~/.local/share/pnpm
 		export PATH=$PNPM_HOME:$PATH
-		eval "$(atuin init zsh)"
+		eval "$(atuin init zsh --disable-up-arrow)"
 	'';
 
 	programs.zsh.ohMyZsh.plugins = [

@@ -55,7 +55,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 
 	environment.systemPackages = with pkgs; [
 		starship bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file lzip unstable.atuin nodejs_20
-		btop fastfetch
+		btop fastfetch tldr gron
 	];
 	
 	users.users.samual.packages = with pkgs; [ gnupg unzip gcc ripgrep ];

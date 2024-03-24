@@ -2,6 +2,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 { config, pkgs, lib, ... }: {
 	imports = [ /etc/nixos/configuration.nix ];
 	nix.gc.automatic = true;
+	nix.optimise.automatic = true;
 	programs.git.enable = true;
 	programs.neovim.enable = true;
 	programs.neovim.defaultEditor = true;

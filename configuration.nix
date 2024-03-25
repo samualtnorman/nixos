@@ -42,8 +42,8 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.zsh.promptInit = ''
 		if [[ ! -n $balvknxsxz3uij76r79lvwbe ]]; then
 			export balvknxsxz3uij76r79lvwbe=1
-		export PNPM_HOME=~/.local/share/pnpm
-		export PATH=$PNPM_HOME:~/.cargo/bin:$PATH
+			export PNPM_HOME=~/.local/share/pnpm
+			export PATH=$PNPM_HOME:~/.cargo/bin:$PATH
 		fi
 
 		eval "$(atuin init zsh --disable-up-arrow)"

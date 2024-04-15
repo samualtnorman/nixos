@@ -57,7 +57,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 
 	programs.zsh.ohMyZsh.plugins = [
 		"alias-finder" "aliases" "catimg" "colored-man-pages" "colorize" "common-aliases" "cp" "dircycle" "git"
-		"git-auto-fetch" "history" "history-substring-search" "last-working-dir" "man" "qrcode" "rsync" "starship"
+		"git-auto-fetch" "history" "history-substring-search" "man" "qrcode" "rsync" "starship"
 	];
 
 	environment.systemPackages = with pkgs; [

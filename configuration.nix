@@ -52,6 +52,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 			export PATH=$PNPM_HOME:~/.cargo/bin:$PATH
 		fi
 
+		export TERM=xterm-256color
 		eval "$(atuin init zsh --disable-up-arrow)"
 	'';
 

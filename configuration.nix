@@ -8,12 +8,11 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.neovim.defaultEditor = true;
 	programs.neovim.viAlias = true;
 	programs.neovim.vimAlias = true;
+	programs.zsh.enable = true;
 	programs.zsh.autosuggestions.enable = true;
 	programs.zsh.autosuggestions.strategy = [ "completion" "match_prev_cmd" "history" ];
-	programs.zsh.enable = true;
 	programs.zsh.enableBashCompletion = true;
 	programs.zsh.ohMyZsh.enable = true;
-	programs.zsh.syntaxHighlighting.enable = true;
 	services.openssh.enable = true;
 	users.defaultUserShell = pkgs.zsh;
 	environment.shellAliases.tfa = ''tmux attach-session -t "$(tmux list-sessions | fzf | cut -d: -f1)"'';
@@ -42,7 +41,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	services.kubo.settings.Addresses.API = "/ip4/127.0.0.1/tcp/5001";
 	programs.direnv.enable = true;
 	system.fsPackages = [ pkgs.sshfs ];
-	programs.zsh.syntaxHighlighting.highlighters = [ "main" "brackets" ];
 	security.pam.u2f.enable = true;
 	programs.nix-ld.enable = true;
 

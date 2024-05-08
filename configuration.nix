@@ -27,6 +27,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.tmux.newSession = true;
 	programs.tmux.baseIndex = 1;
 	programs.tmux.plugins = with pkgs.tmuxPlugins; [ sensible onedark-theme ];
+	programs.tmux.terminal = "tmux-direct";
 
 	programs.tmux.extraConfigBeforePlugins = ''
 		set -ag terminal-overrides ",xterm-256color:RGB"

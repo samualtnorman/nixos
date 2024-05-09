@@ -65,5 +65,5 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 		btop fastfetch tldr gron
 	];
 	
-	users.users.samual.packages = with pkgs; [ gnupg unzip gcc ripgrep cargo ];
+	users.users.samual.packages = with pkgs; [ gnupg unzip gcc ripgrep cargo alacritty ];
 }

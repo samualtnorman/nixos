@@ -8,7 +8,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	
 	users.users.samual.packages = with pkgs; [
 		firefox google-chrome krita wineWowPackages.stable libsForQt5.filelight xorg.xkill nerdfonts thunderbird
-		unstable.vscode unstable.obsidian
+		unstable.vscode unstable.obsidian alacritty
 	];
 
 	services.udev.extraRules = ''

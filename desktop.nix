@@ -1,5 +1,5 @@
 let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
-{ config, pkgs, lib, ... }: {
+{ pkgs, lib, ... }: {
 	networking.hostName = lib.mkOverride 64 "samual-nixos";
 	programs.partition-manager.enable = true;
 	programs.kdeconnect.enable = true;

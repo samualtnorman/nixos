@@ -1,10 +1,11 @@
 let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, ... }: {
 	imports = [ /etc/nixos/configuration.nix ];
 	nix.gc.automatic = true;
 	nix.optimise.automatic = true;
 	programs.git.enable = true;
 	programs.neovim.enable = true;
+	programs.neovim.package = unstable.neovim-unwrapped;
 	programs.neovim.defaultEditor = true;
 	programs.neovim.viAlias = true;
 	programs.neovim.vimAlias = true;

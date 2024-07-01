@@ -15,12 +15,12 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.zsh.ohMyZsh.enable = true;
 	services.openssh.enable = true;
 	users.defaultUserShell = pkgs.zsh;
-	environment.shellAliases.tfa = ''tmux attach-session -t "$(tmux list-sessions | fzf | cut -d: -f1)"'';
-	environment.shellAliases.nix-shell = "nix-shell --run zsh";
-	environment.shellAliases.du = "du --human-readable --max-depth=1";
-	environment.shellAliases.ls = "ls --color=auto --human-readable --classify --sort=extension";
-	environment.shellAliases.df = "df --human-readable";
-	environment.shellAliases.path = "echo $PATH | tr : '\n'";
+	environment.shellAliases.tfa = /* sh */ ''tmux attach-session -t "$(tmux list-sessions | fzf | cut -d: -f1)"'';
+	environment.shellAliases.nix-shell = /* sh */ "nix-shell --run zsh";
+	environment.shellAliases.du = /* sh */ "du --human-readable --max-depth=1";
+	environment.shellAliases.ls = /* sh */ "ls --color=auto --human-readable --classify --sort=extension";
+	environment.shellAliases.df = /* sh */ "df --human-readable";
+	environment.shellAliases.path = /* sh */ "echo $PATH | tr : '\n'";
 	virtualisation.docker.enable = true;
 	programs.tmux.enable = true;
 	programs.tmux.newSession = true;
@@ -28,7 +28,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.tmux.plugins = with pkgs.tmuxPlugins; [ sensible onedark-theme ];
 	programs.tmux.terminal = "tmux-direct";
 
-	programs.tmux.extraConfigBeforePlugins = ''
+	programs.tmux.extraConfigBeforePlugins = /* tmux */ ''
 		set -ag terminal-overrides ",xterm-256color:RGB"
 		set -g mouse on
 	'';
@@ -44,7 +44,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	security.pam.u2f.enable = true;
 	programs.nix-ld.enable = true;
 
-	programs.zsh.promptInit = ''
+	programs.zsh.promptInit = /* sh */ ''
 		if [[ ! -n $balvknxsxz3uij76r79lvwbe ]]; then
 			export balvknxsxz3uij76r79lvwbe=1
 			export PNPM_HOME=~/.local/share/pnpm

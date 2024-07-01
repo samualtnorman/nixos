@@ -4,7 +4,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.partition-manager.enable = true;
 	programs.kdeconnect.enable = true;
 	services.avahi.enable = true;
-	services.avahi.nssmdns = true;
+	services.avahi.nssmdns4 = true;
 	
 	users.users.samual.packages = with pkgs; [
 		firefox google-chrome krita wineWowPackages.stable libsForQt5.filelight xorg.xkill nerdfonts thunderbird

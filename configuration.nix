@@ -62,7 +62,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	];
 
 	environment.systemPackages = with pkgs; [
-		starship bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file lzip unstable.atuin nodejs_20
+		starship bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file lzip unstable.atuin nodejs_22
 		htop fastfetch tldr gron p7zip
 	];
 	

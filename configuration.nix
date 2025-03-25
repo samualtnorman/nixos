@@ -65,6 +65,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 		starship bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file lzip unstable.atuin nodejs_22
 		htop fastfetch tldr gron p7zip
 	];
-	
+
 	users.users.samual.packages = with pkgs; [ gnupg unzip gcc ripgrep cargo python3 ];
 }

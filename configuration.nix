@@ -19,7 +19,8 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	environment.shellAliases.tfa = /* sh */ ''tmux attach-session -t "$(tmux list-sessions | fzf | cut -d: -f1)"'';
 	environment.shellAliases.nix-shell = /* sh */ "nix-shell --run zsh";
 	environment.shellAliases.du = /* sh */ "du --human-readable --max-depth=1";
-	environment.shellAliases.ls = /* sh */ "ls --color=auto --human-readable --classify --sort=extension";
+	environment.shellAliases.ls = /* sh */ "eza --classify --color --hyperlink --almost-all --sort=extension --group-directories-first";
+	environment.shellAliases.ll = /* sh */ "ls --long --header --mounts --time-style='+%d/%m/%Y %H:%M' --git --git-repos";
 	environment.shellAliases.df = /* sh */ "df --human-readable";
 	environment.shellAliases.path = /* sh */ "echo $PATH | tr : '\n'";
 	virtualisation.docker.enable = true;
@@ -63,7 +64,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 
 	environment.systemPackages = with pkgs; [
 		starship bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file lzip unstable.atuin nodejs_22
-		htop fastfetch tldr gron p7zip
+		htop fastfetch tldr gron p7zip eza
 	];
 
 	users.users.samual.packages = with pkgs; [ gnupg unzip gcc ripgrep cargo python3 ];

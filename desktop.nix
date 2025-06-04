@@ -7,9 +7,11 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	services.avahi.nssmdns4 = true;
 	
 	users.users.samual.packages = with pkgs; [
-		firefox google-chrome krita wineWowPackages.stable libsForQt5.filelight xorg.xkill nerdfonts thunderbird
+		firefox google-chrome krita wineWowPackages.stable kdePackages.filelight xorg.xkill thunderbird
 		unstable.vscode unstable.obsidian alacritty libreoffice insomnia xournalpp neovide
 	];
+
+	fonts.packages = [ pkgs.nerd-fonts.symbols-only ];
 
 	services.udev.extraRules = ''
 		ACTION=="remove",\

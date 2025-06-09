@@ -49,6 +49,10 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 
 		eval "$(atuin init zsh --disable-up-arrow)"
 	'';
+	programs.zsh.ohMyZsh.plugins = [
+		"alias-finder" "aliases" "catimg" "colored-man-pages" "colorize" "common-aliases" "cp" "dircycle" "git"
+		"git-auto-fetch" "history" "history-substring-search" "man" "qrcode" "rsync" "starship"
+	];
 
 	programs.tmux.enable = true;
 	programs.tmux.newSession = true;
@@ -87,9 +91,5 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	system.fsPackages = [ pkgs.sshfs ];
 	security.pam.u2f.enable = true;
 	programs.nix-ld.enable = true;
-	programs.zsh.ohMyZsh.plugins = [
-		"alias-finder" "aliases" "catimg" "colored-man-pages" "colorize" "common-aliases" "cp" "dircycle" "git"
-		"git-auto-fetch" "history" "history-substring-search" "man" "qrcode" "rsync" "starship"
-	];
 	users.users.samual.packages = with pkgs; [ gnupg unzip gcc ripgrep cargo python3 ];
 }

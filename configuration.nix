@@ -75,6 +75,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 		jsonnet-language-server yaml-language-server typescript-language-server simple-completion-language-server nixd
 	];
 	environment.variables.TERM = "xterm-256color";
+	environment.variables.EDITOR = "hx";
 	environment.shellAliases.tfa = /* sh */ ''tmux attach-session -t "$(tmux list-sessions | fzf | cut -d: -f1)"'';
 	environment.shellAliases.du = /* sh */ "du --human-readable --max-depth=1";
 	environment.shellAliases.ls = /* sh */ "eza --icons --classify --color --hyperlink --almost-all --sort=extension --group-directories-first";

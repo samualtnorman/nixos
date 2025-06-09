@@ -70,8 +70,9 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	services.kubo.settings.Addresses.API = "/ip4/127.0.0.1/tcp/5001";
 
 	environment.systemPackages = with pkgs; [
-		bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file lzip nodejs_22
-		htop fastfetch tldr gron p7zip eza fq helix wl-clipboard-rs atuin
+		bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file lzip nodejs_22 htop fastfetch tldr gron
+		p7zip eza fq helix wl-clipboard-rs atuin fd zellij bat-extras.core gitui dust nixd xh jsonnet
+		jsonnet-language-server yaml-language-server typescript-language-server simple-completion-language-server nixd
 	];
 	environment.variables.TERM = "xterm-256color";
 	environment.shellAliases.tfa = /* sh */ ''tmux attach-session -t "$(tmux list-sessions | fzf | cut -d: -f1)"'';
@@ -91,5 +92,5 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	system.fsPackages = [ pkgs.sshfs ];
 	security.pam.u2f.enable = true;
 	programs.nix-ld.enable = true;
-	users.users.samual.packages = with pkgs; [ gnupg unzip gcc ripgrep cargo python3 ];
+	users.users.samual.packages = with pkgs; [ gnupg unzip gcc ripgrep cargo python3 pnpm ];
 }

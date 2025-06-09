@@ -31,6 +31,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.zsh.syntaxHighlighting.enable = true;
 	programs.zsh.syntaxHighlighting.highlighters = [ "main" "brackets" "pattern" "cursor" "regexp" "root" "line" ];
 	programs.zsh.enableCompletion = true;
+	programs.zsh.shellAliases.nix-shell = /* sh */ "nix-shell --run zsh";
 	programs.zsh.interactiveShellInit = /* sh */ ''
 		old() {
 			test -f $1~ && old $1~
@@ -70,7 +71,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	];
 	environment.variables.TERM = "xterm-256color";
 	environment.shellAliases.tfa = /* sh */ ''tmux attach-session -t "$(tmux list-sessions | fzf | cut -d: -f1)"'';
-	environment.shellAliases.nix-shell = /* sh */ "nix-shell --run zsh";
 	environment.shellAliases.du = /* sh */ "du --human-readable --max-depth=1";
 	environment.shellAliases.ls = /* sh */ "eza --icons --classify --color --hyperlink --almost-all --sort=extension --group-directories-first";
 	environment.shellAliases.ll = /* sh */ "ls --long --header --mounts --time-style='+%d/%m/%Y %H:%M' --git --git-repos";

@@ -11,7 +11,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 		unstable.vscode unstable.obsidian alacritty libreoffice insomnia xournalpp neovide
 	];
 
-	fonts.packages = [ pkgs.nerd-fonts.symbols-only ];
+	fonts.packages = with pkgs; [ cascadia-code nerd-fonts.symbols-only ];
 
 	services.udev.extraRules = ''
 		ACTION=="remove",\

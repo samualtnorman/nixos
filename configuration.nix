@@ -74,6 +74,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 		bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file lzip nodejs_22 htop fastfetch tldr gron
 		p7zip eza fq helix wl-clipboard-rs atuin fd zellij bat-extras.core gitui dust nixd xh jsonnet
 		jsonnet-language-server yaml-language-server typescript-language-server simple-completion-language-server nixd
+		tailwindcss-language-server emmet-language-server wasm-language-tools
 	];
 	environment.variables.TERM = "xterm-256color";
 	environment.variables.EDITOR = "hx";

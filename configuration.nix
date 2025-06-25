@@ -12,7 +12,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 
 	programs.fish.enable = true;
 	programs.fish.shellAliases.nix-shell = /* sh */ "nix-shell --run fish";
-	programs.fish.shellAliases.path = /* sh */ "echo $PATH | tr ' ' '\n'";
+	programs.fish.shellAliases.list-path = /* sh */ "echo $PATH | tr ' ' '\n'";
 	programs.fish.shellAliases.cat = "bat";
 	programs.fish.shellInit = /* fish */ ''
 		atuin init fish --disable-up-arrow | source
@@ -32,6 +32,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.zsh.syntaxHighlighting.highlighters = [ "main" "brackets" "pattern" "cursor" "regexp" "root" "line" ];
 	programs.zsh.enableCompletion = true;
 	programs.zsh.shellAliases.nix-shell = /* sh */ "nix-shell --run zsh";
+	programs.zsh.shellAliases.list-path = /* sh */ "echo $PATH | tr : '\n'";
 	programs.zsh.interactiveShellInit = /* sh */ ''
 		old() {
 			test -f $1~ && old $1~
@@ -82,7 +83,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	environment.shellAliases.ls = /* sh */ "eza --icons --classify --color --hyperlink --almost-all --sort=extension --group-directories-first";
 	environment.shellAliases.ll = /* sh */ "ls --long --header --mounts --time-style='+%d/%m/%Y %H:%M' --git --git-repos";
 	environment.shellAliases.df = /* sh */ "df --human-readable";
-	environment.shellAliases.path = /* sh */ "echo $PATH | tr : '\n'";
 
 	users.defaultUserShell = pkgs.fish;
 	virtualisation.docker.enable = true;

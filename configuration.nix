@@ -58,7 +58,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.tmux.enable = true;
 	programs.tmux.newSession = true;
 	programs.tmux.baseIndex = 1;
-	programs.tmux.plugins = with pkgs.tmuxPlugins; [ sensible onedark-theme ];
+	programs.tmux.plugins = with pkgs.tmuxPlugins; [ sensible ];
 	programs.tmux.terminal = "tmux-direct";
 
 	programs.tmux.extraConfigBeforePlugins = /* tmux */ ''

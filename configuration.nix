@@ -81,7 +81,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	environment.variables.IPFS_GATEWAY = "http://localhost:8080";
 	environment.shellAliases.tfa = /* sh */ ''tmux attach-session -t "$(tmux list-sessions | fzf | cut -d: -f1)"'';
 	environment.shellAliases.du = /* sh */ "du --human-readable --max-depth=1";
-	environment.shellAliases.ls = /* sh */ "eza --icons --classify --color --hyperlink --almost-all --sort=extension --group-directories-first";
+	environment.shellAliases.ls = /* sh */ "eza --icons --classify --color --hyperlink --almost-all --sort=extension --group-directories-first --binary";
 	environment.shellAliases.ll = /* sh */ "ls --long --header --mounts --time-style='+%d/%m/%Y %H:%M' --git --git-repos";
 	environment.shellAliases.df = /* sh */ "df --human-readable";
 

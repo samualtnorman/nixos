@@ -69,6 +69,9 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	services.openssh.enable = true;
 	services.kubo.enable = true;
 	services.kubo.settings.Addresses.API = "/ip4/127.0.0.1/tcp/5001";
+	services.kubo.package = unstable.kubo;
+	boot.kernel.sysctl."net.core.rmem_max" = 7500000;
+	boot.kernel.sysctl."net.core.wmem_max" = 7500000;
 
 	environment.systemPackages = with pkgs; [
 		bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file lzip nodejs_22 htop fastfetch tldr gron

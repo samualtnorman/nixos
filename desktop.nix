@@ -11,6 +11,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 		unstable.vscode unstable.obsidian alacritty libreoffice insomnia xournalpp neovide
 	];
 
+	environment.systemPackages = with pkgs; [ kdiskmark ];
 
 	services.udev.extraRules = ''
 		ACTION=="remove",\

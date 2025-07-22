@@ -11,7 +11,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 		unstable.vscode unstable.obsidian alacritty libreoffice insomnia xournalpp neovide
 	];
 
-	fonts.packages = with pkgs; [ cascadia-code nerd-fonts.symbols-only ];
 
 	services.udev.extraRules = ''
 		ACTION=="remove",\
@@ -21,4 +20,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 		ENV{ID_VENDOR}=="Yubico",\
 		RUN+="${pkgs.systemd}/bin/loginctl lock-sessions"
 	'';
+	fonts.packages = with pkgs; [ cascadia-code nerd-fonts.symbols-only ];
+	fonts.fontconfig.useEmbeddedBitmaps = true;
 }

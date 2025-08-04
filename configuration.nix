@@ -98,5 +98,5 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	system.fsPackages = [ pkgs.sshfs ];
 	security.pam.u2f.enable = true;
 	programs.nix-ld.enable = true;
-	users.users.samual.packages = with pkgs; [ gnupg unzip gcc ripgrep cargo python3 pnpm ];
+	users.users.samual.packages = with pkgs; [ gnupg unzip gcc ripgrep cargo rust-analyzer python3 pnpm ];
 }

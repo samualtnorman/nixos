@@ -13,6 +13,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 
 	environment.systemPackages = with pkgs; [ kdiskmark ];
 
-	fonts.packages = with pkgs; [ cascadia-code nerd-fonts.symbols-only ];
+	fonts.packages = with pkgs; [ cascadia-code nerd-fonts.symbols-only noto-fonts-cjk-sans noto-fonts-cjk-serif ];
 	fonts.fontconfig.useEmbeddedBitmaps = true;
 }

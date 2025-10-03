@@ -74,8 +74,8 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	boot.kernel.sysctl."net.core.wmem_max" = 7500000;
 
 	environment.systemPackages = with pkgs; [
-		bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file lzip nodejs_22 htop fastfetch tldr gron
-		p7zip eza fq helix wl-clipboard-rs atuin fd zellij bat-extras.core gitui dust nixd xh jsonnet
+		bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file lzip htop fastfetch tldr gron
+		p7zip eza fq unstable.helix wl-clipboard-rs atuin fd zellij bat-extras.core gitui dust nixd xh jsonnet
 		jsonnet-language-server yaml-language-server typescript-language-server simple-completion-language-server nixd
 		tailwindcss-language-server emmet-language-server wasm-language-tools
 	];
@@ -98,5 +98,8 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	system.fsPackages = [ pkgs.sshfs ];
 	security.pam.u2f.enable = true;
 	programs.nix-ld.enable = true;
-	users.users.samual.packages = with pkgs; [ gnupg unzip gcc ripgrep cargo rust-analyzer python3 pnpm ];
+
+	users.users.samual.packages = with pkgs; [
+		gnupg unzip gcc ripgrep cargo rust-analyzer python3 nodejs_24 btrfs-progs pnpm
+	];
 }

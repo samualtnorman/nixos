@@ -93,6 +93,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	boot.binfmt.registrations.wasm.magicOrExtension = "\\x00asm";
 	boot.binfmt.registrations.wasm.mask = "\\xff\\xff\\xff\\xff";
 	boot.binfmt.registrations.wasm.interpreter = "${pkgs.wasmer}/bin/wasmer --";
+	boot.tmp.useTmpfs = true;
 	users.users.samual.extraGroups = [ "docker" config.services.kubo.group ];
 	programs.direnv.enable = true;
 	system.fsPackages = [ pkgs.sshfs ];

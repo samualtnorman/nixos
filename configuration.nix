@@ -101,6 +101,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.nix-ld.enable = true;
 
 	users.users.samual.packages = with pkgs; [
-		gnupg unzip gcc ripgrep cargo rust-analyzer python3 nodejs_24 btrfs-progs pnpm
+		gnupg unzip gcc ripgrep cargo rust-analyzer python3 nodejs_24 btrfs-progs pnpm btrfs-progs smartmontools glow
 	];
 }

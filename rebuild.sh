@@ -8,4 +8,4 @@ else
 	configFile=configuration.nix
 fi
 
-sudo nixos-rebuild switch --upgrade-all -I nixos-config=$configFile
+sudo nixos-rebuild switch --upgrade-all -I nixos-config=$configFile $@

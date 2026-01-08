@@ -75,7 +75,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	boot.kernel.sysctl."net.core.wmem_max" = 7500000;
 
 	environment.systemPackages = with pkgs; [
-		bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmer file lzip htop fastfetch tldr gron
+		bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmtime file lzip htop fastfetch tldr gron
 		p7zip eza fq unstable.helix wl-clipboard-rs atuin fd zellij bat-extras.core gitui dust nixd xh jsonnet
 		jsonnet-language-server yaml-language-server typescript-language-server simple-completion-language-server nixd
 		tailwindcss-language-server emmet-language-server wasm-language-tools
@@ -93,7 +93,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	virtualisation.docker.enable = true;
 	boot.binfmt.registrations.wasm.magicOrExtension = "\\x00asm";
 	boot.binfmt.registrations.wasm.mask = "\\xff\\xff\\xff\\xff";
-	boot.binfmt.registrations.wasm.interpreter = "${pkgs.wasmer}/bin/wasmer --";
+	boot.binfmt.registrations.wasm.interpreter = "${pkgs.wasmtime}/bin/wasmtime run --";
 	boot.tmp.useTmpfs = true;
 	users.users.samual.extraGroups = [ "docker" config.services.kubo.group ];
 	programs.direnv.enable = true;

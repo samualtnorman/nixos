@@ -100,8 +100,14 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	users.users.samual.packages = with pkgs; [
 		bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmtime file lzip htop fastfetch tldr gron p7zip eza
 		fq unstable.helix wl-clipboard-rs fd bat-extras.core gitui dust xh jsonnet gnupg unzip gcc ripgrep cargo python3
-		nodejs_24 btrfs-progs smartmontools glow dockerfile-language-server hyperfine pnpm-shell-completion asciidoctor
-		micro dash btop pandoc pnpm
+		unstable.nodejs_24 btrfs-progs smartmontools glow dockerfile-language-server hyperfine pnpm-shell-completion asciidoctor
+		micro dash btop pandoc
+
+		(pnpm.override {
+			nodejs = unstable.nodejs_24;
+			version = "10.27.0";
+			hash = "sha256-08fD0S2H0XfjLwF0jVmU+yDNW+zxFnDuYFMMN0/+q7M=";
+		})
 
 		# Language Servers
 		nixd

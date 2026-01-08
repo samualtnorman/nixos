@@ -14,7 +14,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.fish.shellAliases.nix-shell = /* sh */ "nix-shell --run fish";
 	programs.fish.shellAliases.list-path = /* sh */ "echo $PATH | tr ' ' '\n'";
 	programs.fish.shellAliases.cat = "bat";
-	programs.fish.shellInit = /* fish */ ''
+	programs.fish.interactiveShellInit = /* fish */ ''
 		atuin init fish --disable-up-arrow | source
 	'';
 

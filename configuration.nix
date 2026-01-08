@@ -74,12 +74,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	boot.kernel.sysctl."net.core.rmem_max" = 7500000;
 	boot.kernel.sysctl."net.core.wmem_max" = 7500000;
 
-	environment.systemPackages = with pkgs; [
-		bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmtime file lzip htop fastfetch tldr gron
-		p7zip eza fq unstable.helix wl-clipboard-rs atuin fd zellij bat-extras.core gitui dust nixd xh jsonnet
-		jsonnet-language-server yaml-language-server typescript-language-server simple-completion-language-server nixd
-		tailwindcss-language-server emmet-language-server wasm-language-tools
-	];
+	environment.systemPackages = with pkgs; [ atuin zellij ];
 	environment.variables.TERM = "xterm-256color";
 	environment.variables.EDITOR = "hx";
 	environment.variables.IPFS_GATEWAY = "http://localhost:8080";
@@ -102,7 +97,20 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.nix-ld.enable = true;
 
 	users.users.samual.packages = with pkgs; [
-		gnupg unzip gcc ripgrep cargo rust-analyzer python3 nodejs_24 btrfs-progs pnpm btrfs-progs smartmontools glow
-		dockerfile-language-server hyperfine
+		bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmtime file lzip htop fastfetch tldr gron p7zip eza
+		fq unstable.helix wl-clipboard-rs fd bat-extras.core gitui dust xh jsonnet gnupg unzip gcc ripgrep cargo python3
+		nodejs_24 btrfs-progs smartmontools glow dockerfile-language-server hyperfine pnpm-shell-completion asciidoctor
+		micro dash btop pandoc pnpm
+
+		# Language Servers
+		nixd
+		jsonnet-language-server
+		yaml-language-server
+		typescript-language-server
+		simple-completion-language-server
+		tailwindcss-language-server
+		emmet-language-server
+		wasm-language-tools
+		rust-analyzer
 	];
 }

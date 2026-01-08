@@ -95,6 +95,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	system.fsPackages = [ pkgs.sshfs ];
 	security.pam.u2f.enable = true;
 	programs.nix-ld.enable = true;
+	programs.nix-ld.libraries = with pkgs; [ libxcb dbus.lib gtk3 gdk-pixbuf cairo glib webkitgtk_4_1 libsoup_3 ];
 
 	users.users.samual.packages = with pkgs; [
 		bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmtime file lzip htop fastfetch tldr gron p7zip eza

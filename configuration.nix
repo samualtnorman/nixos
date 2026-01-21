@@ -16,7 +16,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.fish.shellAliases.cat = "bat";
 	programs.fish.interactiveShellInit = /* fish */ ''
 		atuin init fish --disable-up-arrow | source
-		eval (zellij setup --generate-auto-start fish | string collect)
 	'';
 
 	programs.neovim.enable = true;

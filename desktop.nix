@@ -15,4 +15,8 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 
 	fonts.packages = with pkgs; [ cascadia-code nerd-fonts.symbols-only noto-fonts-cjk-sans noto-fonts-cjk-serif ];
 	fonts.fontconfig.useEmbeddedBitmaps = true;
+
+	programs.fish.interactiveShellInit = /* fish */ ''
+		eval (zellij setup --generate-auto-start fish | string collect)
+	'';
 }

@@ -118,5 +118,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 		emmet-language-server
 		wasm-language-tools
 		rust-analyzer
+		vscode-json-languageserver
 	];
 }

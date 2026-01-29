@@ -92,8 +92,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.nix-ld.libraries = with pkgs; [ libxcb dbus.lib gtk3 gdk-pixbuf cairo glib webkitgtk_4_1 libsoup_3 ];
 
 	users.users.samual.packages = with pkgs; [
-		bat distrobox wget trash-cli fzf file lzip htop fastfetch tldr gron p7zip eza fq unstable.helix wl-clipboard-rs fd
-		bat-extras.core dust xh jsonnet gnupg unzip ripgrep btrfs-progs smartmontools glow hyperfine asciidoctor micro dash
-		btop pandoc
+		bat distrobox wget trash-cli fzf file lzip htop fastfetch tldr gron p7zip eza fq unstable.helix fd bat-extras.core
+		dust xh jsonnet gnupg unzip ripgrep btrfs-progs smartmontools glow hyperfine asciidoctor micro dash btop pandoc
 	];
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 {
 	imports = [ /etc/nixos/configuration.nix ];
@@ -65,10 +65,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 		set -g mouse on
 	'';
 
-	services.openssh.enable = true;
-	services.kubo.enable = true;
-	services.kubo.settings.Addresses.API = "/ip4/127.0.0.1/tcp/5001";
-	services.kubo.package = unstable.kubo;
 	boot.kernel.sysctl."net.core.rmem_max" = 7500000;
 	boot.kernel.sysctl."net.core.wmem_max" = 7500000;
 
@@ -85,7 +81,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	users.defaultUserShell = pkgs.fish;
 	virtualisation.docker.enable = true;
 	boot.tmp.useTmpfs = true;
-	users.users.samual.extraGroups = [ "docker" config.services.kubo.group ];
+	users.users.samual.extraGroups = [ "docker" ];
 	system.fsPackages = [ pkgs.sshfs ];
 	security.pam.u2f.enable = true;
 	programs.nix-ld.enable = true;

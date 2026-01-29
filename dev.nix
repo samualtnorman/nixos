@@ -1,3 +1,4 @@
+let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 { pkgs, ... }: {
 	programs.git.enable = true;
 	programs.direnv.enable = true;

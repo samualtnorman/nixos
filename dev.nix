@@ -4,9 +4,10 @@
 	boot.binfmt.registrations.wasm.magicOrExtension = "\\x00asm";
 	boot.binfmt.registrations.wasm.mask = "\\xff\\xff\\xff\\xff";
 	boot.binfmt.registrations.wasm.interpreter = "${pkgs.wasmtime}/bin/wasmtime run --";
+	environment.variables.PROTOBUF_INCLUDE = "${pkgs.protobuf}/include";
 
 	users.users.samual.packages = with pkgs; [
-		deno remarshal gnumake wabt wasmtime gitui gcc cargo python3 unstable.nodejs_24 pnpm-shell-completion
+		deno remarshal gnumake wabt wasmtime gitui gcc cargo python3 unstable.nodejs_24 pnpm-shell-completion protobuf
 
 		(pnpm.override {
 			nodejs = unstable.nodejs_24;
@@ -26,5 +27,6 @@
 		rust-analyzer
 		vscode-json-languageserver
 		dockerfile-language-server
+		unstable.protols
 	];
 }

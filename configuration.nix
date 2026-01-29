@@ -6,7 +6,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	nix.gc = { automatic = true; options = "--delete-older-than 30d"; };
 	nix.optimise.automatic = true;
 
-	programs.git.enable = true;
 	programs.zoxide.enable = true;
 	programs.starship.enable = true;
 
@@ -85,39 +84,16 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 
 	users.defaultUserShell = pkgs.fish;
 	virtualisation.docker.enable = true;
-	boot.binfmt.registrations.wasm.magicOrExtension = "\\x00asm";
-	boot.binfmt.registrations.wasm.mask = "\\xff\\xff\\xff\\xff";
-	boot.binfmt.registrations.wasm.interpreter = "${pkgs.wasmtime}/bin/wasmtime run --";
 	boot.tmp.useTmpfs = true;
 	users.users.samual.extraGroups = [ "docker" config.services.kubo.group ];
-	programs.direnv.enable = true;
 	system.fsPackages = [ pkgs.sshfs ];
 	security.pam.u2f.enable = true;
 	programs.nix-ld.enable = true;
 	programs.nix-ld.libraries = with pkgs; [ libxcb dbus.lib gtk3 gdk-pixbuf cairo glib webkitgtk_4_1 libsoup_3 ];
 
 	users.users.samual.packages = with pkgs; [
-		bat deno remarshal gnumake distrobox wget trash-cli fzf wabt wasmtime file lzip htop fastfetch tldr gron p7zip eza
-		fq unstable.helix wl-clipboard-rs fd bat-extras.core gitui dust xh jsonnet gnupg unzip gcc ripgrep cargo python3
-		unstable.nodejs_24 btrfs-progs smartmontools glow dockerfile-language-server hyperfine pnpm-shell-completion asciidoctor
-		micro dash btop pandoc
-
-		(pnpm.override {
-			nodejs = unstable.nodejs_24;
-			version = "10.27.0";
-			hash = "sha256-08fD0S2H0XfjLwF0jVmU+yDNW+zxFnDuYFMMN0/+q7M=";
-		})
-
-		# Language Servers
-		nixd
-		jsonnet-language-server
-		yaml-language-server
-		typescript-language-server
-		simple-completion-language-server
-		tailwindcss-language-server
-		emmet-language-server
-		wasm-language-tools
-		rust-analyzer
-		vscode-json-languageserver
+		bat distrobox wget trash-cli fzf file lzip htop fastfetch tldr gron p7zip eza fq unstable.helix wl-clipboard-rs fd
+		bat-extras.core dust xh jsonnet gnupg unzip ripgrep btrfs-progs smartmontools glow hyperfine asciidoctor micro dash
+		btop pandoc
 	];
 }

@@ -25,6 +25,7 @@
 		emmet-language-server
 		wasm-language-tools
 		rust-analyzer
+		vscode-langservers-extracted
 		vscode-json-languageserver
 		dockerfile-language-server
 		unstable.protols

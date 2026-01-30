@@ -26,8 +26,8 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 		emmet-language-server
 		wasm-language-tools
 		rust-analyzer
-		vscode-langservers-extracted
 		vscode-json-languageserver
+		vscode-langservers-extracted
 		dockerfile-language-server
 		unstable.protols
 	];

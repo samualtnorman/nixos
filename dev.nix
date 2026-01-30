@@ -12,8 +12,8 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 
 		(pnpm.override {
 			nodejs = unstable.nodejs_24;
-			version = "10.27.0";
-			hash = "sha256-08fD0S2H0XfjLwF0jVmU+yDNW+zxFnDuYFMMN0/+q7M=";
+			version = "10.28.2";
+			hash = "sha256-r6mbC0s9EcHa0rRy+TGK4seGc4KXSd7VJ/ifCQcUeac=";
 		})
 
 		# Language Servers

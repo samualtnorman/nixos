@@ -90,5 +90,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	users.users.samual.packages = with pkgs; [
 		bat distrobox wget trash-cli fzf file lzip htop fastfetch tldr gron p7zip eza fq unstable.helix fd bat-extras.core
 		dust xh go-jsonnet gnupg unzip ripgrep btrfs-progs smartmontools glow hyperfine asciidoctor micro dash btop pandoc
+		jq
 	];
 }

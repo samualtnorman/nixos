@@ -9,6 +9,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	users.users.samual.packages = with pkgs; [
 		firefox google-chrome krita wineWowPackages.stable kdePackages.filelight xorg.xkill thunderbird
 		unstable.vscode unstable.obsidian alacritty libreoffice insomnia xournalpp neovide wl-clipboard-rs
+		unstable.element-desktop
 	];
 
 	environment.systemPackages = with pkgs; [ kdiskmark ];

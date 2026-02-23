@@ -30,5 +30,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 		vscode-langservers-extracted
 		dockerfile-language-server
 		unstable.protols
+		taplo
 	];
 }

@@ -18,6 +18,8 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	fonts.fontconfig.useEmbeddedBitmaps = true;
 
 	programs.fish.interactiveShellInit = /* fish */ ''
-		eval (zellij setup --generate-auto-start fish | string collect)
+		if test -z $SSH_CLIENT$SSH_TTY
+			eval (zellij setup --generate-auto-start fish | string collect)
+		end
 	'';
 }

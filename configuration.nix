@@ -9,13 +9,18 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.zoxide.enable = true;
 	programs.starship.enable = true;
 
-	programs.fish.enable = true;
-	programs.fish.shellAliases.nix-shell = /* sh */ "nix-shell --run fish";
-	programs.fish.shellAliases.list-path = /* sh */ "echo $PATH | tr ' ' '\n'";
-	programs.fish.shellAliases.cat = "bat";
-	programs.fish.interactiveShellInit = /* fish */ ''
-		atuin init fish --disable-up-arrow | source
-	'';
+	# Fish
+		programs.fish.enable = true;
+
+		programs.fish.shellAliases = {
+			nix-shell = /* sh */ "nix-shell --run fish";
+			list-path = /* sh */ "echo $PATH | tr ' ' '\n'";
+			cat = "bat";
+		};
+
+		programs.fish.interactiveShellInit = /* fish */ ''
+			atuin init fish --disable-up-arrow | source
+		'';
 
 	programs.neovim.enable = true;
 	programs.neovim.package = unstable.neovim-unwrapped;

@@ -20,6 +20,22 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 
 		programs.fish.interactiveShellInit = /* fish */ ''
 			atuin init fish --disable-up-arrow | source
+
+			function mkcd --argument-names folder --description 'Make a directory and change to it'
+				mkdir $folder
+				cd $folder
+			end
+
+			abbr --add gspp 'git stash && begin; git pull; git stash pop; end'
+			abbr --command git unstage 'restore --staged'
+			abbr --command git diff-staged 'diff --staged'
+			abbr --command git stage-diff 'diff --staged'
+			abbr --command git sd 'diff --staged'
+			abbr --command git add-patch 'add --patch'
+			abbr --command git ap 'add --patch'
+			abbr --command git remotes 'remote -v'
+			abbr --command git branches 'branch -v'
+			abbr --command git stash-staged 'stash push -S'
 		'';
 
 	programs.neovim.enable = true;

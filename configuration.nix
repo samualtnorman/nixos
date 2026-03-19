@@ -26,6 +26,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 				cd $folder
 			end
 
+			# Git
 			abbr --add gspp 'git stash && begin; git pull; git stash pop; end'
 			abbr --command git unstage 'restore --staged'
 			abbr --command git diff-staged 'diff --staged'
@@ -33,9 +34,12 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 			abbr --command git sd 'diff --staged'
 			abbr --command git add-patch 'add --patch'
 			abbr --command git ap 'add --patch'
-			abbr --command git remotes 'remote -v'
-			abbr --command git branches 'branch -v'
-			abbr --command git stash-staged 'stash push -S'
+			abbr --command git remotes 'remote --verbose'
+			abbr --command git branches 'branch --verbose'
+			abbr --command git stash-staged 'stash push --staged'
+			abbr --command git commmit commit
+
+			abbr --command docker run 'run --interactive --tty --rm'
 		'';
 
 	programs.neovim.enable = true;

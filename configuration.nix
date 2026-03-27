@@ -30,6 +30,9 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 			abbr --add gspp 'git stash && begin; git pull; git stash pop; end'
 			abbr --command git unstage 'restore --staged'
 			abbr --command git diff-staged 'diff --staged'
+			abbr --command git diff-stage 'diff --staged'
+			abbr --command git ds 'diff --staged'
+			abbr --add gds 'git diff --staged'
 			abbr --command git stage-diff 'diff --staged'
 			abbr --command git sd 'diff --staged'
 			abbr --command git add-patch 'add --patch'
@@ -38,6 +41,8 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 			abbr --command git branches 'branch --verbose'
 			abbr --command git stash-staged 'stash push --staged'
 			abbr --command git commmit commit
+			abbr --command git stauts status
+			abbr --add gap 'git add --patch'
 
 			abbr --command docker run 'run --interactive --tty --rm'
 		'';

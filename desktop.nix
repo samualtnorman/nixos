@@ -7,7 +7,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	services.avahi.nssmdns4 = true;
 	
 	users.users.samual.packages = with pkgs; [
-		firefox google-chrome krita wineWowPackages.stable kdePackages.filelight xorg.xkill thunderbird
+		firefox krita wineWowPackages.stable kdePackages.filelight xorg.xkill thunderbird
 		unstable.vscode unstable.obsidian alacritty libreoffice insomnia xournalpp neovide wl-clipboard-rs
 		unstable.element-desktop
 	];

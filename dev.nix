@@ -9,7 +9,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 
 	users.users.samual.packages = with pkgs; [
 		deno remarshal gnumake wabt wasmtime gitui gcc cargo python3 unstable.nodejs_24 pnpm-shell-completion protobuf
-		bun
+		bun checkbashisms
 
 		(pnpm.override {
 			nodejs = unstable.nodejs_24;

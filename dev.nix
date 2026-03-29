@@ -8,7 +8,8 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	environment.variables.PROTOBUF_INCLUDE = "${pkgs.protobuf}/include";
 
 	users.users.samual.packages = with pkgs; [
-		deno remarshal gnumake wabt wasmtime gitui gcc cargo python3 unstable.nodejs_24 pnpm-shell-completion protobuf bun
+		deno remarshal gnumake wabt wasmtime gitui gcc cargo python3 unstable.nodejs_24 pnpm-shell-completion protobuf
+		bun
 
 		(pnpm.override {
 			nodejs = unstable.nodejs_24;

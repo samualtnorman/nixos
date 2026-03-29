@@ -22,4 +22,6 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 			eval (zellij setup --generate-auto-start fish | string collect)
 		end
 	'';
+
+	boot.supportedFilesystems.ntfs = true;
 }

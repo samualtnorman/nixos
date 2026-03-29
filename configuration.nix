@@ -26,27 +26,32 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 				cd $folder
 			end
 
+			# Typo
+			abbr --command git commmit commit
+			abbr --command git stauts status
+			abbr --command pnpm isntall install
+
 			# Git
 			abbr --add gspp 'git stash && begin; git pull; git stash pop; end'
+			abbr --add gap 'git add --patch'
+			abbr --add gcm 'git commit --message'
 			abbr --command git unstage 'restore --staged'
-			abbr --command git diff-staged 'diff --staged'
-			abbr --command git diff-stage 'diff --staged'
-			abbr --command git ds 'diff --staged'
-			abbr --add gds 'git diff --staged'
-			abbr --command git stage-diff 'diff --staged'
-			abbr --command git sd 'diff --staged'
 			abbr --command git add-patch 'add --patch'
-			abbr --command git ap 'add --patch'
 			abbr --command git remotes 'remote --verbose'
 			abbr --command git branches 'branch --verbose'
 			abbr --command git stash-staged 'stash push --staged'
-			abbr --command git commmit commit
-			abbr --command git stauts status
-			abbr --add gap 'git add --patch'
+			abbr --command git word-diff 'diff --word-diff=color'
+			abbr --command git char-diff 'diff --word-diff=color --word-diff-regex=.'
+			abbr --command git diff-staged 'diff --staged'
+			abbr --command git word-diff-staged 'diff --word-diff=color --staged'
+			abbr --command git char-diff-staged 'diff --word-diff=color --word-diff-regex=. --staged'
 
+			# Docker
 			abbr --command docker run 'run --interactive --tty --rm'
 
-			abbr --command pnpm isntall install
+			# Pnpm
+			abbr --add pn pnpm
+			abbr --add pnx 'pnpm dlx'
 		'';
 
 	programs.neovim.enable = true;

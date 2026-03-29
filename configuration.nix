@@ -121,6 +121,7 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	users.users.samual.extraGroups = [ "docker" ];
 	system.fsPackages = [ pkgs.sshfs ];
 	security.pam.u2f.enable = true;
+	security.sudo.extraConfig = "Defaults pwfeedback";
 	programs.nix-ld.enable = true;
 	programs.nix-ld.libraries = with pkgs; [ libxcb dbus.lib gtk3 gdk-pixbuf cairo glib webkitgtk_4_1 libsoup_3 ];
 

@@ -45,6 +45,8 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 			abbr --add gap 'git add --patch'
 
 			abbr --command docker run 'run --interactive --tty --rm'
+
+			abbr --command pnpm isntall install
 		'';
 
 	programs.neovim.enable = true;

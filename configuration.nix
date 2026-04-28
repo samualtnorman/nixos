@@ -9,6 +9,18 @@ let unstable = import <nixos-unstable> { config.allowUnfree = true; }; in
 	programs.zoxide.enable = true;
 	programs.starship.enable = true;
 
+	programs.starship.settings = {
+		add_newline = true;
+		time.disabled = false;
+		right_format = "$time";
+	};
+
+	programs.starship.transientPrompt.enable = true;
+
+	programs.starship.transientPrompt.right = /* fish */ ''
+		${pkgs.starship}/bin/starship module time
+	'';
+
 	# Fish
 		programs.fish.enable = true;
 
